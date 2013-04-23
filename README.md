@@ -1,0 +1,4 @@
+ymapkit_sample
+==============
+
+iOSマップSDKサンプル

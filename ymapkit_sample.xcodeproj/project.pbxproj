@@ -47,6 +47,11 @@
 		27028C361726A7AA003BFF88 /* via.png in Resources */ = {isa = PBXBuildFile; fileRef = 27028C201726A7AA003BFF88 /* via.png */; };
 		27028C371726A7AA003BFF88 /* via@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27028C211726A7AA003BFF88 /* via@2x.png */; };
 		27028C381726A7AA003BFF88 /* yback.png in Resources */ = {isa = PBXBuildFile; fileRef = 27028C221726A7AA003BFF88 /* yback.png */; };
+		27028C3A1726AE8F003BFF88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C391726AE8F003BFF88 /* SystemConfiguration.framework */; };
+		27028C3C1726AEA3003BFF88 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C3B1726AEA3003BFF88 /* CoreLocation.framework */; };
+		27028C3E1726AEC6003BFF88 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C3D1726AEC6003BFF88 /* OpenGLES.framework */; };
+		27028C401726AED4003BFF88 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C3F1726AED4003BFF88 /* QuartzCore.framework */; };
+		27028C421726AEE6003BFF88 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C411726AEE6003BFF88 /* libxml2.2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +111,11 @@
 		27028C201726A7AA003BFF88 /* via.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = via.png; sourceTree = "<group>"; };
 		27028C211726A7AA003BFF88 /* via@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "via@2x.png"; sourceTree = "<group>"; };
 		27028C221726A7AA003BFF88 /* yback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yback.png; sourceTree = "<group>"; };
+		27028C391726AE8F003BFF88 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		27028C3B1726AEA3003BFF88 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		27028C3D1726AEC6003BFF88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		27028C3F1726AED4003BFF88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		27028C411726AEE6003BFF88 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27028C421726AEE6003BFF88 /* libxml2.2.dylib in Frameworks */,
+				27028C401726AED4003BFF88 /* QuartzCore.framework in Frameworks */,
+				27028C3E1726AEC6003BFF88 /* OpenGLES.framework in Frameworks */,
+				27028C3C1726AEA3003BFF88 /* CoreLocation.framework in Frameworks */,
+				27028C3A1726AE8F003BFF88 /* SystemConfiguration.framework in Frameworks */,
 				27028BCD17269BFD003BFF88 /* UIKit.framework in Frameworks */,
 				27028BCF17269BFD003BFF88 /* Foundation.framework in Frameworks */,
 				27028BD117269BFD003BFF88 /* CoreGraphics.framework in Frameworks */,
@@ -155,6 +170,11 @@
 		27028BCB17269BFD003BFF88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27028C411726AEE6003BFF88 /* libxml2.2.dylib */,
+				27028C3F1726AED4003BFF88 /* QuartzCore.framework */,
+				27028C3D1726AEC6003BFF88 /* OpenGLES.framework */,
+				27028C3B1726AEA3003BFF88 /* CoreLocation.framework */,
+				27028C391726AE8F003BFF88 /* SystemConfiguration.framework */,
 				27028C0A1726A77A003BFF88 /* YMapKit.framework */,
 				27028BCC17269BFD003BFF88 /* UIKit.framework */,
 				27028BCE17269BFD003BFF88 /* Foundation.framework */,

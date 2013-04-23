@@ -10,9 +10,33 @@
 
 @implementation AppDelegate
 
+@synthesize window;
+
+#pragma mark -
+#pragma mark Application lifecycle
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //YMKMapViewのインスタンスを作成
+    YMKMapView* map = [[YMKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 320) appid:@"lPoz6YGxg67mRwTTBxyQ32r5pZWr_VtZxmrFoCRhPmhwHeJHN7GPngjyLzGybXBF4A--" ];
+    
+    //地図のタイプを指定 標準の地図を指定
+    map.mapType = YMKMapTypeStandard;
+    
+    //YMKMapViewを追加
+    [window addSubview:map];
+    
+    //YMKMapViewDelegateを登録
+    map.delegate = self;
+    
+    //地図の位置と縮尺を設定
+    CLLocationCoordinate2D center;
+    center.latitude = 35.6657214;
+    center.longitude = 139.7310058;
+    map.region = YMKCoordinateRegionMake(center, YMKCoordinateSpanMake(0.002, 0.002));
+    
+    [window makeKeyAndVisible];
     return YES;
 }
 							

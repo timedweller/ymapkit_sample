@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <YMapKit/YMapKit.h> //YMapKit.frameworkのヘッダーファイルをインポート
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : NSObject <UIApplicationDelegate, YMKMapViewDelegate> {
+    UIWindow *window;
+    YMKMapView *map; //YMKMapViewインスタンス用ポインタ
+}
+//@interface AppDelegate :UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <YMapKit/YMapKit.h> //YMapKit.frameworkのヘッダーファイルをインポート
 
-@interface ViewController : UIViewController
+// @interface ViewController : UIViewController
+@interface ViewController : UIViewController <YMKMapViewDelegate> {
+    YMKMapView *map; //YMKMapViewインスタンス用ポインタ
+}
 
 @end

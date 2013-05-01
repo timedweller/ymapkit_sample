@@ -1,23 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-120" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="AGu-Cd-Ubw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="cl6-TL-du2"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="weatherSlider:" destination="2" eventType="valueChanged" id="MgO-z7-byd"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sth-u3-cBm">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AGu-Cd-Ubw" firstAttribute="centerX" secondItem="Sth-u3-cBm" secondAttribute="centerX" type="default" id="0uk-8j-3xQ"/>
+                            <constraint firstItem="AGu-Cd-Ubw" firstAttribute="top" secondItem="Sth-u3-cBm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="3BZ-PF-UK7"/>
+                            <constraint firstAttribute="bottom" secondItem="AGu-Cd-Ubw" secondAttribute="bottom" constant="45" id="A5i-SZ-9Dw"/>
+                            <constraint firstItem="AGu-Cd-Ubw" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="scF-Yg-hhq"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="weatherLabel2" destination="Sth-u3-cBm" id="weU-rJ-oWs"/>
+                        <outlet property="weatherSlider" destination="AGu-Cd-Ubw" id="P5a-D4-BRk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="weatherSlider:"/>
+                <relationship kind="outlet" name="weatherLabel2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weatherSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

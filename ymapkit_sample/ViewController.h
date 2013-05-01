@@ -10,9 +10,13 @@
 #import <YMapKit/YMapKit.h> //YMapKit.frameworkのヘッダーファイルをインポート
 
 // @interface ViewController : UIViewController
-@interface ViewController : UIViewController <YMKMapViewDelegate, YMKWeatherOverlayDelegate> {
+@interface ViewController : UIViewController <YMKWeatherOverlayDelegate, YMKMapViewDelegate> {
     YMKMapView *map; //YMKMapViewインスタンス用ポインタ
-    YMKWeatherOverlay * weatherOverlay; //YMKWeatherOverlayインスタンス用ポインタ
+    YMKWeatherOverlay *weatherOverlay; //YMKWeatherOverlayインスタンス用ポインタ
 }
 
+@property (weak, nonatomic) IBOutlet UISlider *weatherSlider;
+- (IBAction)weatherSlider:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *weatherLabel2;
 @end

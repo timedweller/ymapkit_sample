@@ -289,4 +289,149 @@ iOS
 \
 \'81\'a1\'8d\'c5\'8c\'e3\'82\'c92\'8e\'9e\'8a\'d4\'91\'4f\'82\'a9\'82\'e71\'8e\'9e\'8a\'d4\'8c\'e3\'82\'dc\'82\'c5\'82\'cc\'89\'4a\'89\'5f\'82\'f0\'95\'5c\'8e\'a6\'82\'c5\'82\'ab\'82\'e9\'82\'e6\'82\'a4\'82\'c9\'82\'b5\'82\'dc\'82\'b7\
 \
-}
+\'81\'45StoryBoard\'82\'f0\'97\'98\'97\'70\'82\'b5\'82\'c4[Slider]\'82\'c6[Label]\'82\'f0View\'82\'c9\'94\'7a\'92\'75\'82\'b5\'82\'dc\'82\'b7\
+\'81\'40\'81\'45[Slider]\'82\'cc[Value]\'82\'f0[Minimum=-120][Maximum=60][Current=0]\'82\'c9\'90\'dd\'92\'e8\
+\'81\'40\'81\'45[Label]\'82\'cc[Alignment=center][Background=White Color]\'82\'c9\'90\'dd\'92\'e8\
+\'81\'45[Show the Assistant View]\'82\'c9\'95\'cf\'8d\'58\'82\'b5\'83\'81\'83\'93\'83\'6f\'95\'cf\'90\'94\'82\'c6\'83\'43\'83\'78\'83\'93\'83\'67\'82\'f0\'90\'dd\'92\'e8\'82\'b5\'82\'dc\'82\'b7\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic スクリーンショット 2013-05-01 19.58.25.png \width16000 \height11240
+}�}
+\f0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \'81\'45ViewController.h\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf3 \CocoaLigature0 #import \cf4 <UIKit/UIKit.h>\cf3 \
+#import \cf4 <YMapKit/YMapKit.h>\cf3  \cf5 //YMapKit.framework
+\f0 \'82\'cc\'83\'77\'83\'62\'83\'5f\'81\'5b\'83\'74\'83\'40\'83\'43\'83\'8b\'82\'f0\'83\'43\'83\'93\'83\'7c\'81\'5b\'83\'67
+\f3 \cf0 \
+\
+\cf5 //
+\f0 \'83\'66\'83\'8a\'83\'51\'81\'5b\'83\'67\'82\'cc\'92\'c7\'89\'c1
+\f3 \cf0 \
+\cf6 @interface\cf0  ViewController : \cf7 UIViewController\cf0  <\cf7 YMKMapViewDelegate\cf0 , \cf7 YMKWeatherOverlayDelegate\cf0 > \{\
+    \cf7 YMKMapView\cf0  *map; \cf5 //YMKMapView
+\f0 \'83\'43\'83\'93\'83\'58\'83\'5e\'83\'93\'83\'58\'97\'70\'83\'7c\'83\'43\'83\'93\'83\'5e
+\f3 \cf0 \
+    \cf7 YMKWeatherOverlay\cf0  *weatherOverlay; \cf5 //YMKWeatherOverlay
+\f0 \'83\'43\'83\'93\'83\'58\'83\'5e\'83\'93\'83\'58\'97\'70\'83\'7c\'83\'43\'83\'93\'83\'5e
+\f3 \cf0 \
+\}\
+\
+\cf6 @property\cf0  (\cf6 weak\cf0 , \cf6 nonatomic\cf0 ) \cf6 IBOutlet\cf0  \cf7 UISlider\cf0  *weatherSlider;\
+\cf6 @property\cf0  (\cf6 weak\cf0 , \cf6 nonatomic\cf0 ) \cf6 IBOutlet\cf0  \cf7 UILabel\cf0  *weatherLabel;\
+- (\cf6 IBAction\cf0 )weatherSlider:(\cf6 id\cf0 )sender;\
+\
+\cf6 @end\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\'81\'45ViewController.m\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf0 \CocoaLigature0 - (\cf6 void\cf0 )viewDidLoad\
+\{\
+    [\cf6 super\cf0  \cf9 viewDidLoad\cf0 ];\
+	\cf5 // Do any additional setup after loading the view, typically from a nib.\cf0 \
+	
+\f0 \'81\'45\'81\'45\'81\'45\'81\'45
+\f3 \
+    \
+    \cf5 //
+\f0 \'89\'4a\'89\'5f\'8e\'9e\'8d\'8f\'95\'5c\'8e\'a6\'97\'70\'83\'89\'83\'78\'83\'8b\'81\'41\'83\'58\'83\'89\'83\'43\'83\'5f\'81\'5b\'82\'f0\'91\'53\'96\'ca\'82\'c9\'95\'5c\'8e\'a6
+\f3 \cf0 \
+    [\cf6 self\cf0 .\cf7 view\cf0  \cf9 addSubview\cf0 :\cf8 _weatherLabel\cf0 ];\
+    [\cf6 self\cf0 .\cf7 view\cf0  \cf9 addSubview\cf0 :\cf8 _weatherSlider\cf0 ];\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf5 \CocoaLigature0 //overlay
+\f0 \'92\'c7\'89\'c1\'83\'43\'83\'78\'83\'93\'83\'67
+\f3 \cf0 \
+- (\cf7 YMKOverlayView\cf0 *)mapView:(\cf7 YMKMapView\cf0  *)mapView viewForOverlay:(\cf6 id\cf0  )overlay\
+\{\
+    \cf5 //
+\f0 \'92\'c7\'89\'c1\'82\'b3\'82\'ea\'82\'bd
+\f3 overlay
+\f0 \'82\'aa
+\f3 YMKWeatherOverlay 
+\f0 \'82\'a9\'8a\'6d\'94\'46
+\f3 \cf0 \
+    \cf6 if\cf0 ([overlay \cf9 isKindOfClass\cf0 :[\cf7 YMKWeatherOverlay\cf0  \cf9 class\cf0 ]] )\{\
+        \cf5 //YMKWeatherOverlayView
+\f0 \'8d\'ec\'90\'ac
+\f3 \cf0 \
+		
+\f0 \'81\'45\'81\'45\'81\'45\'81\'45
+\f3         \
+        \cf5 //
+\f0 \'8f\'89\'89\'f1\'89\'4a\'89\'5f\'8e\'9e\'8d\'8f\'82\'f0\'8e\'e6\'93\'be\'82\'b5\'82\'c4\'83\'89\'83\'78\'83\'8b\'82\'c9\'95\'5c\'8e\'a6
+\f3 \cf0 \
+        \cf7 NSDate\cf0  *nowDate = weatherOverlayView.\cf7 nowDate\cf0 ;\
+        \cf7 NSDateFormatter\cf0  *formatter = [[\cf7 NSDateFormatter\cf0  \cf9 alloc\cf0 ] \cf9 init\cf0 ];\
+        \cf7 NSLocale\cf0  *jpLocale = [[\cf7 NSLocale\cf0  \cf9 alloc\cf0 ] \cf9 initWithLocaleIdentifier\cf0 :\cf4 @"ja-JP"\cf0 ];\
+        [formatter \cf9 setLocale\cf0 :jpLocale];\
+        [formatter \cf9 setDateStyle\cf0 :\cf9 NSDateFormatterShortStyle\cf0 ];\
+        [formatter \cf9 setTimeStyle\cf0 :\cf9 NSDateFormatterShortStyle\cf0 ];\
+        \cf8 _weatherLabel\cf0 .\cf7 text\cf0  = [\cf7 NSString\cf0  \cf9 stringWithFormat\cf0 :\cf4 @"%@"\cf0 , [formatter \cf9 stringFromDate\cf0 :nowDate]];\
+\
+        \cf6 return\cf0  weatherOverlayView ;\
+    \}\
+    \cf6 return\cf0  \cf6 nil\cf0 ;\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf5 \CocoaLigature0 //
+\f0 \'89\'e6\'96\'ca\'82\'cc\'8d\'58\'90\'56\'82\'aa\'8d\'73\'82\'c8\'82\'ed\'82\'ea\'82\'e9\'82\'c6\'92\'ca\'92\'6d\'82\'b3\'82\'ea\'82\'dc\'82\'b7\'81\'42
+\f3 \cf0 \
+-(\cf6 void\cf0 )finishUpdateWeather:(\cf7 YMKWeatherOverlayView\cf0 *)weatherOverlayView\
+\{\
+    \cf5 // 
+\f0 \'95\'5c\'8e\'a6\'92\'86\'82\'cc\'89\'4a\'89\'5f\'8e\'9e\'8d\'8f\'82\'f0\'8e\'e6\'93\'be\'82\'b5\'82\'c4\'83\'89\'83\'78\'83\'8b\'82\'c9\'95\'5c\'8e\'a6
+\f3 \cf0 \
+    \cf7 NSDate\cf0  *nowDate = weatherOverlayView.\cf7 nowDate\cf0 ;\
+    \cf7 NSDateFormatter\cf0  *formatter = [[\cf7 NSDateFormatter\cf0  \cf9 alloc\cf0 ] \cf9 init\cf0 ];\
+    \cf7 NSLocale\cf0  *jpLocale = [[\cf7 NSLocale\cf0  \cf9 alloc\cf0 ] \cf9 initWithLocaleIdentifier\cf0 :\cf4 @"ja-JP"\cf0 ];\
+    [formatter \cf9 setLocale\cf0 :jpLocale];\
+    [formatter \cf9 setDateStyle\cf0 :\cf9 NSDateFormatterShortStyle\cf0 ];\
+    [formatter \cf9 setTimeStyle\cf0 :\cf9 NSDateFormatterShortStyle\cf0 ];\
+    \cf8 _weatherLabel\cf0 .\cf7 text\cf0  = [\cf7 NSString\cf0  \cf9 stringWithFormat\cf0 :\cf4 @"%@"\cf0 , [formatter \cf9 stringFromDate\cf0 :nowDate]];\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf5 \CocoaLigature0 //
+\f0 \'83\'58\'83\'89\'83\'43\'83\'5f\'81\'5b\'83\'6f\'81\'5b\'82\'cc\'92\'6c\'95\'cf\'8d\'58\'82\'cc\'92\'ca\'92\'6d
+\f3 \cf0 \
+- (\cf6 IBAction\cf0 )weatherSlider:(\cf6 id\cf0 )sender \{\
+    \cf6 if\cf0  ((\cf6 int\cf0 )\cf8 _weatherSlider\cf0 .\cf7 value\cf0  % \cf10 10\cf0  == \cf10 0\cf0 )\{\
+        \cf7 YMKWeatherOverlayView\cf0  * overlayView = (\cf7 YMKWeatherOverlayView\cf0  *)[\cf8 map\cf0  \cf9 viewForOverlay\cf0 : \cf8 weatherOverlay\cf0 ];\
+        \cf6 if\cf0 ([overlayView \cf9 isKindOfClass\cf0 :[\cf7 YMKWeatherOverlayView\cf0  \cf9 class\cf0 ]] )\{\
+            \cf5 //
+\f0 \'89\'4a\'89\'5f\'82\'cc\'8e\'9e\'8d\'8f\'82\'f0\'90\'dd\'92\'e8\'82\'b5\'82\'c4\'8d\'c4\'95\'5c\'8e\'a6
+\f3 \cf0 \
+            [overlayView \cf9 updateWeatherWithMinutes\cf0 : \cf8 _weatherSlider\cf0 .\cf7 value\cf0 ];\
+        \}\
+    \}\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\'81\'a5\'89\'4a\'89\'5f\'82\'cc2\'8e\'9e\'8a\'d4\'91\'4f\'82\'a9\'82\'e71\'8e\'9e\'8a\'d4\'8c\'e3\'82\'f0\'8a\'6d\'94\'46\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic スクリーンショット 2013-05-01 20.27.12.png \width7920 \height14880
+}�}
+\f0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \
+\'88\'c8\'8f\'e3}

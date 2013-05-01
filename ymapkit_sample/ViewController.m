@@ -37,13 +37,50 @@
     CLLocationCoordinate2D center;
     center.latitude = 35.6657214;
     center.longitude = 139.7310058;
-    map.region = YMKCoordinateRegionMake(center, YMKCoordinateSpanMake(0.015, 0.015));
+    //縮尺をズーム値で指定(11 = 1/1525877)
+    double zoom = width * 360.0/(1<<(7+11));
+    map.region = YMKCoordinateRegionMake(center, YMKCoordinateSpanMake(zoom, zoom));
+
+    //YMKWeatherOverlayを作成
+    weatherOverlay = [[YMKWeatherOverlay alloc] init];
+    
+    //YMKWeatherOverlayをYMKMapViewに追加
+    [map addOverlay:weatherOverlay];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//overlay追加イベント
+- (YMKOverlayView*)mapView:(YMKMapView *)mapView viewForOverlay:(id )overlay
+{
+    //追加されたoverlayがYMKWeatherOverlay か確認
+    if([overlay isKindOfClass:[YMKWeatherOverlay class]] ){
+        //YMKWeatherOverlayView作成
+        YMKWeatherOverlayView *weatherOverlayView = [[YMKWeatherOverlayView alloc]
+                                                     initWithOverlay:overlay];
+        //YMKWeatherOverlayDelegateの設定
+        weatherOverlayView.delegate = self;
+        //アルファ値を設定
+        weatherOverlayView.alpha = 0.6;
+        return weatherOverlayView ;
+    }
+    return nil;
+}
+
+//画面の更新が行なわれると通知されます。
+-(void)finishUpdateWeather:(YMKWeatherOverlayView*)weatherOverlayView
+{
+    
+}
+
+//雨雲レーダー情報の取得でエラーが発生したら通知
+-(void)errorUpdateWeather:(YMKWeatherOverlayView*)weatherOverlayView withError:(int)error
+{
+    
 }
 
 @end

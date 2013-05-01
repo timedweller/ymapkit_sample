@@ -10,8 +10,9 @@
 #import <YMapKit/YMapKit.h> //YMapKit.frameworkのヘッダーファイルをインポート
 
 // @interface ViewController : UIViewController
-@interface ViewController : UIViewController <YMKMapViewDelegate> {
+@interface ViewController : UIViewController <YMKMapViewDelegate, YMKWeatherOverlayDelegate> {
     YMKMapView *map; //YMKMapViewインスタンス用ポインタ
+    YMKWeatherOverlay * weatherOverlay; //YMKWeatherOverlayインスタンス用ポインタ
 }
 
 @end

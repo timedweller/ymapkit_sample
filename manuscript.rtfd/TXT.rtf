@@ -1,7 +1,9 @@
 {\rtf1\ansi\ansicpg932\cocoartf1187\cocoasubrtf370
 {\fonttbl\f0\fnil\fcharset128 HiraKakuProN-W3;\f1\fswiss\fcharset0 Helvetica;\f2\fmodern\fcharset0 Courier;
-}
-{\colortbl;\red255\green255\blue255;\red38\green38\blue38;}
+\f3\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red100\green56\blue32;\red196\green26\blue22;
+\red0\green116\blue0;\red170\green13\blue145;\red92\green38\blue153;\red63\green110\blue116;\red46\green13\blue110;
+\red28\green0\blue207;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww16380\viewh15300\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
@@ -53,12 +55,93 @@ iOS
 \f0 \cf0 \
 \'81\'45\'83\'60\'83\'85\'81\'5b\'83\'67\'83\'8a\'83\'41\'83\'8b\'82\'cc[\'97\'98\'97\'70\'8f\'80\'94\'f5]\'82\'c9\'82\'a0\'82\'e9[
 \f2\fs22 \cf2 YMapKit.framework]
-\f0\fs24 \cf0 \'82\'c6
-\fs22 \cf2 \'83\'8a\'83\'5c\'81\'5b\'83\'58\'83\'74\'83\'40\'83\'43\'83\'8b\'82\'f0\'92\'c7\'89\'c1\'82\'b5\'82\'dc\'82\'b7
+\f0\fs24 \cf0 \'82\'c6\'83\'74\'83\'8c\'81\'5b\'83\'80\'83\'8f\'81\'5b\'83\'4e\'81\'41
+\fs22 \cf2 \'83\'8a\'83\'5c\'81\'5b\'83\'58\'83\'74\'83\'40\'83\'43\'83\'8b\'82\'f0\'92\'c7\'89\'c1\'82\'b5\'82\'dc\'82\'b7\
+\'81\'45\'83\'60\'83\'85\'81\'5b\'83\'67\'83\'8a\'83\'41\'83\'8b\'82\'cc[\'92\'6e\'90\'7d\'82\'f0\'95\'5c\'8e\'a6\'82\'b7\'82\'e9]\'82\'f0\'8e\'51\'8d\'6c\'82\'c9\'83\'52\'81\'5b\'83\'68\'82\'f0\'8f\'43\'90\'b3
 \f2 \
 
 \f0 \'81\'45
-\f1\fs24 \cf0 \
+\f2 ViewController.h\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3 \cf3 \CocoaLigature0 #import \cf4 <UIKit/UIKit.h>\cf3 \
+#import \cf4 <YMapKit/YMapKit.h>\cf3  \cf5 //YMapKit.framework
+\f0 \'82\'cc\'83\'77\'83\'62\'83\'5f\'81\'5b\'83\'74\'83\'40\'83\'43\'83\'8b\'82\'f0\'83\'43\'83\'93\'83\'7c\'81\'5b\'83\'67
+\f3 \cf0 \
+\
+\cf5 //
+\f0 \'83\'66\'83\'8a\'83\'51\'81\'5b\'83\'67\'82\'cc\'92\'c7\'89\'c1
+\f3 \cf0 \
+\cf6 @interface\cf0  ViewController : \cf7 UIViewController\cf0  <\cf7 YMKMapViewDelegate\cf0 > \{\
+    \cf7 YMKMapView\cf0  *map; \cf5 //YMKMapView
+\f0 \'83\'43\'83\'93\'83\'58\'83\'5e\'83\'93\'83\'58\'97\'70\'83\'7c\'83\'43\'83\'93\'83\'5e
+\f3 \cf0 \
+\}\
+\
+\cf6 @end\
+
+\f1\fs24 \cf0 \CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0 \cf0 \'81\'45ViewController.m\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf3 \CocoaLigature0 #import \cf4 "ViewController.h"\cf3 \
+\cf0 \
+\cf6 @interface\cf0  \cf8 ViewController\cf0  ()\
+\
+\cf6 @end\cf0 \
+\
+\cf6 @implementation\cf0  ViewController\
+\
+- (\cf6 void\cf0 )viewDidLoad\
+\{\
+    [\cf6 super\cf0  \cf9 viewDidLoad\cf0 ];\
+	\cf5 // Do any additional setup after loading the view, typically from a nib.\cf0 \
+    \cf7 CGFloat\cf0  width  = \cf6 self\cf0 .\cf7 view\cf0 .\cf7 frame\cf0 .\cf7 size\cf0 .\cf7 width\cf0 ;\
+    \cf7 CGFloat\cf0  height = \cf6 self\cf0 .\cf7 view\cf0 .\cf7 frame\cf0 .\cf7 size\cf0 .\cf7 height\cf0 ;\
+\
+    \cf5 //YMKMapView
+\f0 \'82\'cc\'83\'43\'83\'93\'83\'58\'83\'5e\'83\'93\'83\'58\'82\'f0\'8d\'ec\'90\'ac
+\f3 \cf0 \
+    \cf8 map\cf0  = [[\cf7 YMKMapView\cf0  \cf9 alloc\cf0 ] \cf9 initWithFrame\cf0 :\cf9 CGRectMake\cf0 (\cf10 0\cf0 , \cf10 0\cf0 , width, height) \cf9 appid\cf0 :\cf4 @"lPoz6YGxg67mRwTTBxyQ32r5pZWr_VtZxmrFoCRhPmhwHeJHN7GPngjyLzGybXBF4A--"\cf0  ];\
+    \
+    \cf5 //
+\f0 \'92\'6e\'90\'7d\'82\'cc\'83\'5e\'83\'43\'83\'76\'82\'f0\'8e\'77\'92\'e8
+\f3  
+\f0 \'95\'57\'8f\'80\'82\'cc\'92\'6e\'90\'7d\'82\'f0\'8e\'77\'92\'e8
+\f3 \cf0 \
+    \cf8 map\cf0 .\cf7 mapType\cf0  = \cf9 YMKMapTypeStandard\cf0 ;\
+    \
+    \cf5 //YMKMapView
+\f0 \'82\'f0\'92\'c7\'89\'c1
+\f3 \cf0 \
+    [\cf6 self\cf0 .\cf7 view\cf0  \cf9 addSubview\cf0 :\cf8 map\cf0 ];\
+\
+    \cf5 //YMKMapViewDelegate
+\f0 \'82\'f0\'93\'6f\'98\'5e
+\f3 \cf0 \
+    \cf8 map\cf0 .\cf7 delegate\cf0  = \cf6 self\cf0 ;\
+    \
+    \cf5 //
+\f0 \'92\'6e\'90\'7d\'82\'cc\'88\'ca\'92\'75\'82\'c6\'8f\'6b\'8e\'da\'82\'f0\'90\'dd\'92\'e8
+\f3 \cf0 \
+    \cf7 CLLocationCoordinate2D\cf0  center;\
+    center.\cf7 latitude\cf0  = \cf10 35.6657214\cf0 ;\
+    center.\cf7 longitude\cf0  = \cf10 139.7310058\cf0 ;\
+    \cf8 map\cf0 .\cf7 region\cf0  = \cf9 YMKCoordinateRegionMake\cf0 (center, \cf9 YMKCoordinateSpanMake\cf0 (\cf10 0.015\cf0 , \cf10 0.015\cf0 ));\
+\}\
+\
+- (\cf6 void\cf0 )didReceiveMemoryWarning\
+\{\
+    [\cf6 super\cf0  \cf9 didReceiveMemoryWarning\cf0 ];\
+    \cf5 // Dispose of any resources that can be recreated.\cf0 \
+\}\
+\
+\cf6 @end\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs24 \cf0 \CocoaLigature1 \
 \
 
 \f0 \'81\'a5\'92\'6e\'90\'7d\'82\'aa\'95\'5c\'8e\'a6\'82\'b3\'82\'ea\'82\'dc\'82\'b5\'82\'bd
@@ -69,12 +152,141 @@ iOS
 \cf0 \
 
 \f0 \
-\'81\'a1\'82\'c2\'82\'c3\'82\'a2\'82\'c4\'89\'4a\'89\'5f\'82\'f0\'95\'5c\'8e\'a6\'82\'b5\'82\'c4\'82\'dd\'82\'dc\'82\'b7\
+\'81\'a1\'82\'c2\'82\'c3\'82\'a2\'82\'c4\'8c\'bb\'8d\'dd\'82\'cc\'89\'4a\'89\'5f\'82\'f0\'95\'5c\'8e\'a6\'82\'b5\'82\'dc\'82\'b7\
 \'81\'45\'89\'4a\'89\'5f\'82\'f0\'95\'5c\'8e\'a6\'82\'b7\'82\'e9\
 {\field{\*\fldinst{HYPERLINK "http://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/iphonesdk/tutorial15.html"}}{\fldrslt http://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/iphonesdk/tutorial15.html}}\
 \
-\'81\'45AppDelegate.h\
+\'81\'45ViewController.h\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf3 \CocoaLigature0 #import \cf4 <UIKit/UIKit.h>\cf3 \
+#import \cf4 <YMapKit/YMapKit.h>\cf3  \cf5 //YMapKit.framework
+\f0 \'82\'cc\'83\'77\'83\'62\'83\'5f\'81\'5b\'83\'74\'83\'40\'83\'43\'83\'8b\'82\'f0\'83\'43\'83\'93\'83\'7c\'81\'5b\'83\'67
+\f3 \cf0 \
 \
-\'81\'45AppDelegate.m\
+\cf5 //
+\f0 \'83\'66\'83\'8a\'83\'51\'81\'5b\'83\'67\'82\'cc\'92\'c7\'89\'c1
+\f3 \cf0 \
+\cf6 @interface\cf0  ViewController : \cf7 UIViewController\cf0  <\cf7 YMKMapViewDelegate\cf0 , \cf7 YMKWeatherOverlayDelegate\cf0 > \{\
+    \cf7 YMKMapView\cf0  *map; \cf5 //YMKMapView
+\f0 \'83\'43\'83\'93\'83\'58\'83\'5e\'83\'93\'83\'58\'97\'70\'83\'7c\'83\'43\'83\'93\'83\'5e
+\f3 \cf0 \
+    \cf7 YMKWeatherOverlay\cf0  *weatherOverlay; \cf5 //YMKWeatherOverlay
+\f0 \'83\'43\'83\'93\'83\'58\'83\'5e\'83\'93\'83\'58\'97\'70\'83\'7c\'83\'43\'83\'93\'83\'5e
+\f3 \cf0 \
+\}\
+\
+\cf6 @end\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\'81\'45ViewController.m\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f3\fs22 \cf3 \CocoaLigature0 #import \cf4 "ViewController.h"\cf3 \
+\cf0 \
+\cf6 @interface\cf0  \cf8 ViewController\cf0  ()\
+\
+\cf6 @end\cf0 \
+\
+\cf6 @implementation\cf0  ViewController\
+\
+- (\cf6 void\cf0 )viewDidLoad\
+\{\
+    [\cf6 super\cf0  \cf9 viewDidLoad\cf0 ];\
+	\cf5 // Do any additional setup after loading the view, typically from a nib.\cf0 \
+	
+\f0 \'81\'45\'81\'45\'81\'45\'81\'45\'81\'45
+\f3 \
+    \cf5 //
+\f0 \'92\'6e\'90\'7d\'82\'cc\'88\'ca\'92\'75\'82\'c6\'8f\'6b\'8e\'da\'82\'f0\'90\'dd\'92\'e8
+\f3 \cf0 \
+    \cf7 CLLocationCoordinate2D\cf0  center;\
+    center.\cf7 latitude\cf0  = \cf10 35.6657214\cf0 ;\
+    center.\cf7 longitude\cf0  = \cf10 139.7310058\cf0 ;\
+    \cf5 //
+\f0 \'8f\'6b\'8e\'da\'82\'f0\'83\'59\'81\'5b\'83\'80\'92\'6c\'82\'c5\'8e\'77\'92\'e8
+\f3 (11 = 1/1525877)\cf0 \
+    \cf8 map\cf0 .\cf7 region\cf0  = \cf9 YMKCoordinateRegionMake\cf0 (center, \cf9 YMKCoordinateSpanMake\cf0 (zoom, zoom));\
+    \
+    \cf5 //YMKWeatherOverlay
+\f0 \'82\'f0\'8d\'ec\'90\'ac
+\f3 \cf0 \
+    \cf8 weatherOverlay\cf0  = [[\cf7 YMKWeatherOverlay\cf0  \cf9 alloc\cf0 ] \cf9 init\cf0 ];\
+    \
+    \cf5 //YMKWeatherOverlay
+\f0 \'82\'f0
+\f3 YMKMapView
+\f0 \'82\'c9\'92\'c7\'89\'c1
+\f3 \cf0 \
+    [\cf8 map\cf0  \cf9 addOverlay\cf0 :\cf8 weatherOverlay\cf0 ];\
+\}\
+\
+\cf5 //overlay
+\f0 \'92\'c7\'89\'c1\'83\'43\'83\'78\'83\'93\'83\'67
+\f3 \cf0 \
+- (\cf7 YMKOverlayView\cf0 *)mapView:(\cf7 YMKMapView\cf0  *)mapView viewForOverlay:(\cf6 id\cf0  )overlay\
+\{\
+    \cf5 //
+\f0 \'92\'c7\'89\'c1\'82\'b3\'82\'ea\'82\'bd
+\f3 overlay
+\f0 \'82\'aa
+\f3 YMKWeatherOverlay 
+\f0 \'82\'a9\'8a\'6d\'94\'46
+\f3 \cf0 \
+    \cf6 if\cf0 ([overlay \cf9 isKindOfClass\cf0 :[\cf7 YMKWeatherOverlay\cf0  \cf9 class\cf0 ]] )\{\
+        \cf5 //YMKWeatherOverlayView
+\f0 \'8d\'ec\'90\'ac
+\f3 \cf0 \
+        \cf7 YMKWeatherOverlayView\cf0  *weatherOverlayView = [[\cf7 YMKWeatherOverlayView\cf0  \cf9 alloc\cf0 ]\
+                                                     \cf9 initWithOverlay\cf0 :overlay];\
+        \cf5 //YMKWeatherOverlayDelegate
+\f0 \'82\'cc\'90\'dd\'92\'e8
+\f3 \cf0 \
+        weatherOverlayView.\cf7 delegate\cf0  = \cf6 self\cf0 ;\
+        \cf5 //
+\f0 \'83\'41\'83\'8b\'83\'74\'83\'40\'92\'6c\'82\'f0\'90\'dd\'92\'e8
+\f3 \cf0 \
+        weatherOverlayView.\cf7 alpha\cf0  = \cf10 0.6\cf0 ;\
+        \cf6 return\cf0  weatherOverlayView ;\
+    \}\
+    \cf6 return\cf0  \cf6 nil\cf0 ;\
+\}\
+\
+\cf5 //
+\f0 \'89\'e6\'96\'ca\'82\'cc\'8d\'58\'90\'56\'82\'aa\'8d\'73\'82\'c8\'82\'ed\'82\'ea\'82\'e9\'82\'c6\'92\'ca\'92\'6d\'82\'b3\'82\'ea\'82\'dc\'82\'b7\'81\'42
+\f3 \cf0 \
+-(\cf6 void\cf0 )finishUpdateWeather:(\cf7 YMKWeatherOverlayView\cf0 *)weatherOverlayView\
+\{\
+    \
+\}\
+\
+\cf5 //
+\f0 \'89\'4a\'89\'5f\'83\'8c\'81\'5b\'83\'5f\'81\'5b\'8f\'ee\'95\'f1\'82\'cc\'8e\'e6\'93\'be\'82\'c5\'83\'47\'83\'89\'81\'5b\'82\'aa\'94\'ad\'90\'b6\'82\'b5\'82\'bd\'82\'e7\'92\'ca\'92\'6d
+\f3 \cf0 \
+-(\cf6 void\cf0 )errorUpdateWeather:(\cf7 YMKWeatherOverlayView\cf0 *)weatherOverlayView withError:(\cf6 int\cf0 )error\
+\{\
+    \
+\}\
+\
+- (\cf6 void\cf0 )didReceiveMemoryWarning\
+\{\
+    [\cf6 super\cf0  \cf9 didReceiveMemoryWarning\cf0 ];\
+    \cf5 // Dispose of any resources that can be recreated.\cf0 \
+\}\
+\
+\cf6 @end\cf0 \
+\
+\
+\uc0\u9660 
+\f0 \'89\'4a\'89\'5f\'82\'aa\'95\'5c\'8e\'a6\'82\'b3\'82\'ea\'82\'dc\'82\'b5\'82\'bd
+\f3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs24 \cf0 \CocoaLigature1 {{\NeXTGraphic スクリーンショット 2013-05-01 14.40.28.png \width7920 \height14880
+}�}
+\f0 \
+\
+\'81\'a1\'8d\'c5\'8c\'e3\'82\'c92\'8e\'9e\'8a\'d4\'91\'4f\'82\'a9\'82\'e71\'8e\'9e\'8a\'d4\'8c\'e3\'82\'dc\'82\'c5\'82\'cc\'89\'4a\'89\'5f\'82\'f0\'95\'5c\'8e\'a6\'82\'c5\'82\'ab\'82\'e9\'82\'e6\'82\'a4\'82\'c9\'82\'b5\'82\'dc\'82\'b7\
 \
 }

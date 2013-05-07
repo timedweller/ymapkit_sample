@@ -67,13 +67,7 @@
         weatherOverlayView.alpha = 0.6;
         
         //初回雨雲時刻を取得してラベルに表示
-        NSDate *nowDate = weatherOverlayView.nowDate;
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        NSLocale *jpLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja-JP"];
-        [formatter setLocale:jpLocale];
-        [formatter setDateStyle:NSDateFormatterShortStyle];
-        [formatter setTimeStyle:NSDateFormatterShortStyle];
-        _weatherLabel2.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:nowDate]];
+        [self finishUpdateWeather:weatherOverlayView];
        
         return weatherOverlayView;
     }

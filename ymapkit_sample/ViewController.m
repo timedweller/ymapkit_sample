@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "MyAnnotation.h"
+#import "MyPinAnnotationView.h"
 
 @interface ViewController ()
 
@@ -32,24 +34,84 @@
 
     //YMKMapViewDelegateを登録
     map.delegate = self;
-    
+ 
+    //ロケーションマネージャを作成
+    locationMgr = [[CLLocationManager alloc] init];
+    locationMgr.delegate = self;
+     
     //地図の位置と縮尺を設定
-    CLLocationCoordinate2D center;
+    /*CLLocationCoordinate2D center;
     center.latitude = 35.6657214;
     center.longitude = 139.7310058;
     //縮尺をズーム値で指定(11 = 1/1525877)
     double zoom = width * 360.0/(1<<(7+11));
-    map.region = YMKCoordinateRegionMake(center, YMKCoordinateSpanMake(zoom, zoom));
+    map.region = YMKCoordinateRegionMake(center, YMKCoordinateSpanMake(zoom, zoom));*/
+  
+    //マップ初期表示位置を設定(日本列島がすべて表示される位置に設定)
+    CLLocationCoordinate2D initialCordinate = CLLocationCoordinate2DMake(38.081382, 139.766084);
+    YMKCoordinateSpan span = YMKCoordinateSpanMake(18.5, 18.5);
+    YMKCoordinateRegion region = YMKCoordinateRegionMake(initialCordinate, span);
+    [map setRegion:region animated:NO];
 
+    //アイコンの緯度経度を設定
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = 35.665818701569016;
+    coordinate.longitude = 139.73087297164147;
+    //MyAnnotationの初期化
+    MyAnnotation* myAnnotation = [[MyAnnotation alloc] initWithLocationCoordinate:coordinate title:@"ミッドタウン" subtitle:@"ミッドタウンです。"];
+  
+    //AnnotationをYMKMapViewに追加
+    [map addAnnotation:myAnnotation];
+  
     //YMKWeatherOverlayを作成
-    weatherOverlay = [[YMKWeatherOverlay alloc] init];
+    //weatherOverlay = [[YMKWeatherOverlay alloc] init];
       
     //YMKWeatherOverlayをYMKMapViewに追加
-    [map addOverlay:weatherOverlay];
+    //[map addOverlay:weatherOverlay];
     
     //雨雲時刻表示用ラベル、スライダーを全面に表示
-    [self.view addSubview:_weatherLabel2];
-    [self.view addSubview:_weatherSlider];
+    //[self.view addSubview:_weatherLabel];
+    //[self.view addSubview:_weatherSlider];
+    [self.view addSubview:_zoomIn];
+    [self.view addSubview:_zoomOut];
+    [self.view addSubview:_goGPS];
+  [self.view addSubview:_weatherButton];
+}
+
+//Annotation追加イベント
+- (YMKAnnotationView*)mapView:(YMKMapView *)mapView viewForAnnotation:(MyAnnotation*)annotation{
+  //追加されたAnnotationがMyAnnotationか確認
+  if([annotation isKindOfClass:[MyAnnotation class]]){
+    //YMKPinAnnotationViewを作成
+    MyPinAnnotationView *pin = [[MyPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"Pin"];
+    //吹き出しに表示するボタンを追加
+    UIButton * rightAccessoryButton = [UIButton buttonWithType: UIButtonTypeCustom];
+    [rightAccessoryButton setFrame:CGRectMake(0, 0, 29, 29)];
+    [rightAccessoryButton setBackgroundImage:[UIImage imageNamed:@"purple_arrow.png"] forState:UIControlStateNormal];
+    [pin setRightCalloutAccessoryView:rightAccessoryButton];
+    pin.animatesDrop = YES;
+    return pin;
+  }
+  return nil;
+}
+
+//吹き出しボタンイベント
+- (void)mapView:(YMKMapView*)mapView annotationView:(YMKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+  //押されたのがどのピンか判定
+  NSString *title = view.annotation.title;
+  NSString *msg = @"メッセージ";
+  UIAlertView *alert =
+	[[UIAlertView alloc]
+   initWithTitle:title
+   message:msg
+   delegate:self
+   cancelButtonTitle:@"OK"
+   otherButtonTitles:nil];
+  [alert show];
+  //if(view==pin){
+    
+  //}
 }
 
 //overlay追加イベント
@@ -74,7 +136,7 @@
     return nil;
 }
 
-//画面の更新が行なわれると通知されます。
+//画面の更新が行なわれると通知されます
 -(void)finishUpdateWeather:(YMKWeatherOverlayView*)weatherOverlayView
 {
     // 表示中の雨雲時刻を取得してラベルに表示
@@ -84,7 +146,7 @@
     [formatter setLocale:jpLocale];
     [formatter setDateStyle:NSDateFormatterShortStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
-    _weatherLabel2.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:nowDate]];
+    _weatherLabel.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:nowDate]];
     NSLog([NSString stringWithFormat:@"%@", [formatter stringFromDate:nowDate]]);
 }
 
@@ -113,4 +175,60 @@
     NSLog(@"didReceiveMemoryWarning");
 }
 
+- (IBAction)zoomIn:(id)sender {
+  int zoomlevel = map.getZoomlevel;
+  //double z = map.frame.size.width;
+  double zoom = self.view.frame.size.width*360.0/(1<<(8+(zoomlevel+1)));
+  YMKCoordinateRegion region = YMKCoordinateRegionMake(map.centerCoordinate, YMKCoordinateSpanMake(zoom, zoom));
+  [map setRegion:region animated:YES];
+  //map.region = YMKCoordinateRegionMake(map.centerCoordinate, YMKCoordinateSpanMake(zoom, zoom));
+}
+
+- (IBAction)zoomOut:(id)sender {
+  int zoomlevel = map.getZoomlevel;
+  double zoom = self.view.frame.size.width*360.0/(1<<(8+(zoomlevel-1)));
+  YMKCoordinateRegion region = YMKCoordinateRegionMake(map.centerCoordinate, YMKCoordinateSpanMake(zoom, zoom));
+  [map setRegion:region animated:YES];
+  //map.region = YMKCoordinateRegionMake(map.centerCoordinate, YMKCoordinateSpanMake(zoom, zoom));
+  //[map regionThatFits:map.region];
+}
+
+- (IBAction)goGPS:(id)sender {
+  //現在位置取得
+  [map setShowsUserLocation:YES];
+  //userLocation = map.userLocation.location.coordinate;
+  //map.region = YMKCoordinateRegionMake(userLocation, YMKCoordinateSpanMake(0.005, 0.005));
+
+  [locationMgr startUpdatingLocation];
+}
+
+//現在位置取得完了
+-(void)locationManager:(CLLocationManager*)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+  userLocation = newLocation.coordinate;
+  
+  //シミュレータでは現在位置を取得できないので、開発用にデフォルトの値を設定しておく
+  //userLocation.latitude  = 35.6657214;
+  //userLocation.longitude = 139.7310058;
+  
+  //地図の中心位置・縮尺を設定
+  YMKCoordinateRegion region = YMKCoordinateRegionMake(userLocation, YMKCoordinateSpanMake(0.005, 0.005));
+  [map setRegion:region animated:NO];
+  [map regionThatFits:region];
+    
+  //測位を終了させる
+  [locationMgr stopUpdatingLocation];
+}
+
+- (IBAction)weatherButton:(id)sender {
+  //YMKWeatherOverlayを作成
+  weatherOverlay = [[YMKWeatherOverlay alloc] init];
+  
+  //YMKWeatherOverlayをYMKMapViewに追加
+  [map addOverlay:weatherOverlay];
+  
+  //雨雲時刻表示用ラベル、スライダーを全面に表示
+  [self.view addSubview:_weatherLabel];
+  [self.view addSubview:_weatherSlider];
+}
 @end

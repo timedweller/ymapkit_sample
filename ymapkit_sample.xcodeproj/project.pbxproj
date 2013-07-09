@@ -18,11 +18,6 @@
 		27028BE317269BFD003BFF88 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27028BE217269BFD003BFF88 /* Default-568h@2x.png */; };
 		27028BE617269BFD003BFF88 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27028BE417269BFD003BFF88 /* MainStoryboard_iPhone.storyboard */; };
 		27028BEC17269BFD003BFF88 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27028BEB17269BFD003BFF88 /* ViewController.m */; };
-		27028BF417269BFD003BFF88 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028BF317269BFD003BFF88 /* SenTestingKit.framework */; };
-		27028BF517269BFD003BFF88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028BCC17269BFD003BFF88 /* UIKit.framework */; };
-		27028BF617269BFD003BFF88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028BCE17269BFD003BFF88 /* Foundation.framework */; };
-		27028BFE17269BFD003BFF88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27028BFC17269BFD003BFF88 /* InfoPlist.strings */; };
-		27028C0117269BFD003BFF88 /* ymapkit_sampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27028C0017269BFD003BFF88 /* ymapkit_sampleTests.m */; };
 		27028C0B1726A77A003BFF88 /* YMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C0A1726A77A003BFF88 /* YMapKit.framework */; };
 		27028C231726A7AA003BFF88 /* compass48.png in Resources */ = {isa = PBXBuildFile; fileRef = 27028C0D1726A7AA003BFF88 /* compass48.png */; };
 		27028C241726A7AA003BFF88 /* compass48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27028C0E1726A7AA003BFF88 /* compass48@2x.png */; };
@@ -51,15 +46,18 @@
 		27028C3E1726AEC6003BFF88 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C3D1726AEC6003BFF88 /* OpenGLES.framework */; };
 		27028C401726AED4003BFF88 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C3F1726AED4003BFF88 /* QuartzCore.framework */; };
 		27028C421726AEE6003BFF88 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27028C411726AEE6003BFF88 /* libxml2.2.dylib */; };
+		27CF207B17716BBB0031A37F /* libYMapKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CF207A17716BA10031A37F /* libYMapKit.a */; };
+		27FE60AA1755CACA004225F7 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FE60A91755CACA004225F7 /* MyAnnotation.m */; };
+		27FE60AD1755E10D004225F7 /* MyPinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FE60AC1755E10D004225F7 /* MyPinAnnotationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		27028BF717269BFD003BFF88 /* PBXContainerItemProxy */ = {
+		27CF207917716BA10031A37F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 27028BC117269BFD003BFF88 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27028BC817269BFD003BFF88;
-			remoteInfo = ymapkit_sample;
+			containerPortal = 27CF207417716BA10031A37F /* YMapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC61FACC15D377E6002FC6AC;
+			remoteInfo = YMapKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -80,7 +78,6 @@
 		27028BE517269BFD003BFF88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		27028BEA17269BFD003BFF88 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		27028BEB17269BFD003BFF88 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		27028BF217269BFD003BFF88 /* ymapkit_sampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ymapkit_sampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27028BF317269BFD003BFF88 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		27028BFB17269BFD003BFF88 /* ymapkit_sampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ymapkit_sampleTests-Info.plist"; sourceTree = "<group>"; };
 		27028BFD17269BFD003BFF88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -114,6 +111,11 @@
 		27028C3D1726AEC6003BFF88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		27028C3F1726AED4003BFF88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		27028C411726AEE6003BFF88 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		27CF207417716BA10031A37F /* YMapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YMapKit.xcodeproj; path = "../../ios-ymap/ios-sdk/map_sdk_v2/trunk/YMapKit/YMapKit.xcodeproj"; sourceTree = "<group>"; };
+		27FE60A81755CACA004225F7 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		27FE60A91755CACA004225F7 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		27FE60AB1755E10D004225F7 /* MyPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPinAnnotationView.h; path = ../MyPinAnnotationView.h; sourceTree = "<group>"; };
+		27FE60AC1755E10D004225F7 /* MyPinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPinAnnotationView.m; path = ../MyPinAnnotationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27CF207B17716BBB0031A37F /* libYMapKit.a in Frameworks */,
 				27028C421726AEE6003BFF88 /* libxml2.2.dylib in Frameworks */,
 				27028C401726AED4003BFF88 /* QuartzCore.framework in Frameworks */,
 				27028C3E1726AEC6003BFF88 /* OpenGLES.framework in Frameworks */,
@@ -130,16 +133,6 @@
 				27028BCF17269BFD003BFF88 /* Foundation.framework in Frameworks */,
 				27028BD117269BFD003BFF88 /* CoreGraphics.framework in Frameworks */,
 				27028C0B1726A77A003BFF88 /* YMapKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27028BEE17269BFD003BFF88 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27028BF417269BFD003BFF88 /* SenTestingKit.framework in Frameworks */,
-				27028BF517269BFD003BFF88 /* UIKit.framework in Frameworks */,
-				27028BF617269BFD003BFF88 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +146,7 @@
 				27028BF917269BFD003BFF88 /* ymapkit_sampleTests */,
 				27028BCB17269BFD003BFF88 /* Frameworks */,
 				27028BCA17269BFD003BFF88 /* Products */,
+				27CF207417716BA10031A37F /* YMapKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				27028BC917269BFD003BFF88 /* ymapkit_sample.app */,
-				27028BF217269BFD003BFF88 /* ymapkit_sampleTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +183,10 @@
 				27028BE417269BFD003BFF88 /* MainStoryboard_iPhone.storyboard */,
 				27028BEA17269BFD003BFF88 /* ViewController.h */,
 				27028BEB17269BFD003BFF88 /* ViewController.m */,
+				27FE60A81755CACA004225F7 /* MyAnnotation.h */,
+				27FE60A91755CACA004225F7 /* MyAnnotation.m */,
+				27FE60AB1755E10D004225F7 /* MyPinAnnotationView.h */,
+				27FE60AC1755E10D004225F7 /* MyPinAnnotationView.m */,
 				27028BD317269BFD003BFF88 /* Supporting Files */,
 			);
 			path = ymapkit_sample;
@@ -259,6 +256,14 @@
 			path = ../../../../Downloads/mapsdk_ios/Ymap/image;
 			sourceTree = "<group>";
 		};
+		27CF207517716BA10031A37F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27CF207A17716BA10031A37F /* libYMapKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,25 +284,6 @@
 			productReference = 27028BC917269BFD003BFF88 /* ymapkit_sample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		27028BF117269BFD003BFF88 /* ymapkit_sampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27028C0717269BFD003BFF88 /* Build configuration list for PBXNativeTarget "ymapkit_sampleTests" */;
-			buildPhases = (
-				27028BED17269BFD003BFF88 /* Sources */,
-				27028BEE17269BFD003BFF88 /* Frameworks */,
-				27028BEF17269BFD003BFF88 /* Resources */,
-				27028BF017269BFD003BFF88 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27028BF817269BFD003BFF88 /* PBXTargetDependency */,
-			);
-			name = ymapkit_sampleTests;
-			productName = ymapkit_sampleTests;
-			productReference = 27028BF217269BFD003BFF88 /* ymapkit_sampleTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -317,13 +303,28 @@
 			mainGroup = 27028BC017269BFD003BFF88;
 			productRefGroup = 27028BCA17269BFD003BFF88 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 27CF207517716BA10031A37F /* Products */;
+					ProjectRef = 27CF207417716BA10031A37F /* YMapKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				27028BC817269BFD003BFF88 /* ymapkit_sample */,
-				27028BF117269BFD003BFF88 /* ymapkit_sampleTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		27CF207A17716BA10031A37F /* libYMapKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libYMapKit.a;
+			remoteRef = 27CF207917716BA10031A37F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		27028BC717269BFD003BFF88 /* Resources */ = {
@@ -360,31 +361,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27028BEF17269BFD003BFF88 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27028BFE17269BFD003BFF88 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		27028BF017269BFD003BFF88 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		27028BC517269BFD003BFF88 /* Sources */ = {
@@ -394,26 +371,12 @@
 				27028BD917269BFD003BFF88 /* main.m in Sources */,
 				27028BDD17269BFD003BFF88 /* AppDelegate.m in Sources */,
 				27028BEC17269BFD003BFF88 /* ViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27028BED17269BFD003BFF88 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27028C0117269BFD003BFF88 /* ymapkit_sampleTests.m in Sources */,
+				27FE60AA1755CACA004225F7 /* MyAnnotation.m in Sources */,
+				27FE60AD1755E10D004225F7 /* MyPinAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		27028BF817269BFD003BFF88 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27028BC817269BFD003BFF88 /* ymapkit_sample */;
-			targetProxy = 27028BF717269BFD003BFF88 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		27028BD517269BFD003BFF88 /* InfoPlist.strings */ = {
@@ -511,8 +474,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ymapkit_sample/ymapkit_sample-Prefix.pch";
 				INFOPLIST_FILE = "ymapkit_sample/ymapkit_sample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -527,43 +491,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ymapkit_sample/ymapkit_sample-Prefix.pch";
 				INFOPLIST_FILE = "ymapkit_sample/ymapkit_sample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		27028C0817269BFD003BFF88 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ymapkit_sample.app/ymapkit_sample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ymapkit_sample/ymapkit_sample-Prefix.pch";
-				INFOPLIST_FILE = "ymapkit_sampleTests/ymapkit_sampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		27028C0917269BFD003BFF88 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ymapkit_sample.app/ymapkit_sample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ymapkit_sample/ymapkit_sample-Prefix.pch";
-				INFOPLIST_FILE = "ymapkit_sampleTests/ymapkit_sampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -584,15 +515,6 @@
 			buildConfigurations = (
 				27028C0517269BFD003BFF88 /* Debug */,
 				27028C0617269BFD003BFF88 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27028C0717269BFD003BFF88 /* Build configuration list for PBXNativeTarget "ymapkit_sampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27028C0817269BFD003BFF88 /* Debug */,
-				27028C0917269BFD003BFF88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

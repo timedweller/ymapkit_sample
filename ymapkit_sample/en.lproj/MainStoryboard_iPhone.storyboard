@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -25,18 +27,90 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-FZ-dbS">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="Tbh-wY-4vI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomIn:" destination="2" eventType="touchUpInside" id="Wf0-Pe-vcF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQB-Nh-Akg">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomOut:" destination="2" eventType="touchUpInside" id="I9b-RK-kYR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bcj-QB-f7K">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="GPS">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goGPS:" destination="2" eventType="touchUpInside" id="JbQ-oT-ZfF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLl-fq-f5b">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="ceK-vl-eah"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="天気">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="weatherButton:" destination="2" eventType="touchUpInside" id="7IK-lk-w5x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xLl-fq-f5b" firstAttribute="leading" secondItem="Bcj-QB-f7K" secondAttribute="leading" type="default" id="3WX-op-HrR"/>
                             <constraint firstAttribute="bottom" secondItem="AGu-Cd-Ubw" secondAttribute="bottom" constant="45" id="A5i-SZ-9Dw"/>
+                            <constraint firstItem="bQB-Nh-Akg" firstAttribute="top" secondItem="rUz-FZ-dbS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BxV-oH-lo2"/>
                             <constraint firstItem="Sth-u3-cBm" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="JaO-qh-zZu"/>
+                            <constraint firstItem="bQB-Nh-Akg" firstAttribute="trailing" secondItem="rUz-FZ-dbS" secondAttribute="trailing" type="default" id="Rg3-t8-IJD"/>
+                            <constraint firstItem="xLl-fq-f5b" firstAttribute="trailing" secondItem="Bcj-QB-f7K" secondAttribute="trailing" type="default" id="Tjb-Ri-vsn"/>
+                            <constraint firstItem="xLl-fq-f5b" firstAttribute="baseline" secondItem="rUz-FZ-dbS" secondAttribute="baseline" type="default" id="ZIH-Ba-1jo"/>
+                            <constraint firstItem="AGu-Cd-Ubw" firstAttribute="top" secondItem="bQB-Nh-Akg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="e8y-Vo-whs"/>
+                            <constraint firstItem="Bcj-QB-f7K" firstAttribute="baseline" secondItem="bQB-Nh-Akg" secondAttribute="baseline" type="default" id="gxx-7x-Hjz"/>
                             <constraint firstItem="Sth-u3-cBm" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="l3K-iv-oQR"/>
+                            <constraint firstAttribute="trailing" secondItem="xLl-fq-f5b" secondAttribute="trailing" constant="6" id="qAA-G4-KAI"/>
+                            <constraint firstItem="bQB-Nh-Akg" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="13" id="qgc-ef-X2w"/>
                             <constraint firstItem="AGu-Cd-Ubw" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="scF-Yg-hhq"/>
+                            <constraint firstItem="bQB-Nh-Akg" firstAttribute="leading" secondItem="rUz-FZ-dbS" secondAttribute="leading" type="default" id="uyd-y6-N17"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="weatherLabel2" destination="Sth-u3-cBm" id="weU-rJ-oWs"/>
+                        <outlet property="goGPS" destination="Bcj-QB-f7K" id="6HO-Ny-j45"/>
+                        <outlet property="weatherButton" destination="xLl-fq-f5b" id="kUn-NV-wal"/>
+                        <outlet property="weatherLabel" destination="Sth-u3-cBm" id="g4G-R0-B8c"/>
                         <outlet property="weatherSlider" destination="AGu-Cd-Ubw" id="P5a-D4-BRk"/>
+                        <outlet property="zoomIn" destination="rUz-FZ-dbS" id="466-Rx-Kig"/>
+                        <outlet property="zoomOut" destination="bQB-Nh-Akg" id="Acw-Je-bPd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -44,6 +118,27 @@
             <point key="canvasLocation" x="113" y="19"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goGPS:"/>
+                <relationship kind="action" name="weatherButton:"/>
+                <relationship kind="action" name="weatherSlider:"/>
+                <relationship kind="action" name="zoomIn:"/>
+                <relationship kind="action" name="zoomOut:"/>
+                <relationship kind="outlet" name="goGPS" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="weatherButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="weatherLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weatherSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="zoomIn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="zoomOut" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
